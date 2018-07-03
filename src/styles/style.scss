@@ -1,0 +1,16 @@
+@import "variables";
+@import "utilities";
+
+html,
+body {
+  font-family: $font-family;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
