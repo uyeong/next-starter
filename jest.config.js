@@ -6,6 +6,9 @@ module.exports = {
   transform: {
     '^.+\\.(j|t)sx?$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
   },
+  moduleNameMapper: {
+    "\\.(css|scss)$": "identity-obj-proxy"
+  },
   setupFiles: ['<rootDir>/jest.setup.js'],
   testMatch: ['**/__tests__/*.(ts|tsx)'],
   collectCoverage: true,
