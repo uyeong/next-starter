@@ -4,6 +4,7 @@
     "target": "es6",
     "jsx": "react",
     "moduleResolution": "node",
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,

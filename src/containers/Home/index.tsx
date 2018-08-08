@@ -1,11 +1,18 @@
 import React from 'react';
-import { connect, DispatchProp } from 'react-redux';
 import Head from 'next/head';
 import Link from 'next/link';
+import { inject } from 'mobx-react';
+import RootStore from 'stores/RootStore';
 import css from './style.scss';
 
-class Home extends React.Component<DispatchProp> {
+interface Props {
+  stores: RootStore;
+}
+
+@inject('stores')
+class Home extends React.Component<Props> {
   public render() {
+    const { appStore } = this.props.stores;
     return (
       <>
         <Head>
@@ -14,7 +21,8 @@ class Home extends React.Component<DispatchProp> {
           <meta name="keywords" content="" />
         </Head>
         <article className={css.wrapper}>
-          Hello world.<br />
+          Hello world.
+          <p>app store initialized: {appStore.initialized ? 'TRUE' : 'FALSE'}</p>
           <Link href="/about">
             <a>Go to about</a>
           </Link>
@@ -24,4 +32,4 @@ class Home extends React.Component<DispatchProp> {
   }
 }
 
-export default connect()(Home);
+export default Home;

@@ -1,10 +1,9 @@
 import React from 'react';
-import { connect, DispatchProp } from 'react-redux';
 import Head from 'next/head';
 import Link from 'next/link';
 import css from './style.scss';
 
-class About extends React.Component<DispatchProp> {
+class About extends React.Component {
   public render() {
     return (
       <>
@@ -14,7 +13,8 @@ class About extends React.Component<DispatchProp> {
           <meta name="keywords" content="" />
         </Head>
         <article className={css.wrapper}>
-          About me<br />
+          About me
+          <br />
           <Link href="/">
             <a>Go to home</a>
           </Link>
@@ -24,4 +24,4 @@ class About extends React.Component<DispatchProp> {
   }
 }
 
-export default connect()(About);
+export default About;
