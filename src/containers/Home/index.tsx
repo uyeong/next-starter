@@ -14,7 +14,8 @@ class Home extends React.Component<DispatchProp> {
           <meta name="keywords" content="" />
         </Head>
         <article className={css.wrapper}>
-          Hello world.<br />
+          Hello world.
+          <br />
           <Link href="/about">
             <a>Go to about</a>
           </Link>

@@ -1,5 +1,5 @@
 import { Action, loadInitialData } from 'actions/initialize';
-import { NextContext, NextStatelessComponent } from 'next';
+import { NextContext, NextFunctionComponent } from 'next';
 import withRedux from 'next-redux-wrapper';
 import App, { Container } from 'next/app';
 import { RouterProps } from 'next/router';
@@ -11,7 +11,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import 'styles/style.scss';
 
 interface MyNextContext {
-  Component: NextStatelessComponent;
+  Component: NextFunctionComponent;
   router: RouterProps;
   ctx: { store: Store<State> } & NextContext;
 }

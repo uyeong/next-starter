@@ -14,7 +14,8 @@ class About extends React.Component<DispatchProp> {
           <meta name="keywords" content="" />
         </Head>
         <article className={css.wrapper}>
-          About me<br />
+          About me
+          <br />
           <Link href="/">
             <a>Go to home</a>
           </Link>
