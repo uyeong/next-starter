@@ -1,14 +1,14 @@
 import { Provider } from 'mobx-react';
-import { NextContext, NextStatelessComponent } from 'next';
+import { NextContext, NextFunctionComponent } from 'next';
 import App, { Container } from 'next/app';
 import { RouterProps } from 'next/router';
 import React from 'react';
 import { serialize } from 'serializr';
-import 'styles/style.scss';
 import RootStore, { initStore } from '../stores/RootStore';
+import 'styles/style.scss';
 
 interface MyNextContext {
-  Component: NextStatelessComponent;
+  Component: NextFunctionComponent;
   router: RouterProps;
   ctx: NextContext;
 }
@@ -30,7 +30,7 @@ class MyApp extends App {
 
   constructor(props: any) {
     super(props);
-    this.store = initStore(this.props.serializedStore);
+    this.store = initStore(props.serializedStore);
   }
 
   public render() {

@@ -4,7 +4,7 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   transform: {
-    '^.+\\.(j|t)sx?$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
+    '^.+\\.(j|t)sx?$': 'ts-jest',
   },
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy"

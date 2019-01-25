@@ -14,7 +14,9 @@ export default class AppStore {
 
   @action
   public async loadInitialData() {
-    await new Promise(resolve => setTimeout(() => resolve(), 300));
-    this.initialized = true;
+    if (!this.initialized) {
+      await new Promise(resolve => setTimeout(() => resolve(), 300));
+      this.initialized = true;
+    }
   }
 }
