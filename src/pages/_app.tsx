@@ -1,26 +1,16 @@
-import { Action, loadInitialData } from 'actions/initialize';
-import { NextContext, NextFunctionComponent } from 'next';
-import withRedux from 'next-redux-wrapper';
+import { NextComponentType, NextContext } from 'next';
 import App, { Container } from 'next/app';
-import { RouterProps } from 'next/router';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { initStore, State } from 'reducers';
-import { Store } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
 import 'styles/style.scss';
 
-interface MyNextContext {
-  Component: NextFunctionComponent;
-  router: RouterProps;
-  ctx: { store: Store<State> } & NextContext;
+interface MyAppContext {
+  Component: NextComponentType;
+  ctx: NextContext;
 }
 
 class MyApp extends App {
-  public static async getInitialProps({ Component, ctx }: MyNextContext) {
-    const store = ctx.store;
+  public static async getInitialProps({ Component, ctx }: MyAppContext) {
     let pageProps = {};
-    await (store.dispatch as ThunkDispatch<State, void, Action>)(loadInitialData());
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
@@ -30,15 +20,13 @@ class MyApp extends App {
   public props: any;
 
   public render() {
-    const { Component, pageProps, store } = this.props;
+    const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <Component {...pageProps} />
       </Container>
     );
   }
 }
 
-export default withRedux(initStore)(MyApp);
+export default MyApp;

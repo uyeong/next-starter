@@ -1,4 +1,4 @@
-# Next.js Starter
+ Next.js Starter
 
 This is a really simple project that show the usage of Next.js with TypeScript.
 
@@ -20,13 +20,22 @@ yarn dev
 
 ## NPM Scripts
 
+### List
+
 ```bash
-yarn lint:pt # Run prettier
-yarn lint:ts # Run tslint
-yarn lint    # Run prettier and tslint
-yarn test    # Run jest
-yarn analyze # Run bundle analyze
-yarn dev
-yarn build
-yarn start
+$ yarn lint:pt # Run prettier
+$ yarn lint:ts # Run tslint
+$ yarn lint    # Run prettier and tslint
+$ yarn test    # Run jest
+$ yarn analyze # Run bundle analyze
+$ yarn dev     # Run next server for development
+$ yarn build   # Run next build(.next)
+$ yarn export  # Run static HTML export(out)
+$ yarn start   # Run http-server on the out directory
+```
+
+### Build
+
+```
+$ NODE_ENV=production yarn build && yarn export
 ```

@@ -1,10 +1,9 @@
 import React from 'react';
-import { connect, DispatchProp } from 'react-redux';
 import Head from 'next/head';
 import Link from 'next/link';
 import css from './style.scss';
 
-class Home extends React.Component<DispatchProp> {
+class Home extends React.Component {
   public render() {
     return (
       <>
@@ -25,4 +24,4 @@ class Home extends React.Component<DispatchProp> {
   }
 }
 
-export default connect()(Home);
+export default Home;
